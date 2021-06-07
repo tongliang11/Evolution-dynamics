@@ -1,6 +1,7 @@
 name: evolution
 channels:
   - defaults
+  - conda-forge
 dependencies:
   - python
   - matplotlib=3.4.1
