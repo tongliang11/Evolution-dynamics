@@ -4,7 +4,7 @@
 First, please clone this repository into your local machine and have Anaconda or Miniconda installed. 
 Then you can create a virtual environment with the following command:
 ```
-conda env create --name evolution --file conda-env.yml
+conda env create --name evolution --file environment.yml
 ```
 and activate the created environment:
 ```
