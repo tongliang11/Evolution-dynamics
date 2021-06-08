@@ -10,6 +10,7 @@ numpy=1.20.2
 scipy=1.6.2
 matplotlib=3.4.1
 seaborn=0.11.1
+pandas=1.2.4
 ```
 Optionaly pakcages (jupyter extension configurator and python formatter):
 ```
@@ -20,7 +21,7 @@ First, clone this repository into your local machine and have [conda](https://do
 Use `conda --version` to check conda version, which should be `4.10.1` or above.
 Then create a conda environment named `evolution` with the relavent packages installed with command:
 ```
-conda create --name evolution --channel conda-forge python=3.9.4 jupyter=1.0.0 matplotlib=3.4.1  numpy=1.20.2 scipy=1.6.2 seaborn=0.11.1 jupyter_nbextensions_configurator=0.4.1 autopep8=1.5.6 
+conda create --name evolution --channel conda-forge python=3.9.4 jupyter=1.0.0 matplotlib=3.4.1  numpy=1.20.2 scipy=1.6.2 seaborn=0.11.1 pandas=1.2.4 jupyter_nbextensions_configurator=0.4.1 autopep8=1.5.6 
 ```
 and then you can activate the created environment with:
 ```
