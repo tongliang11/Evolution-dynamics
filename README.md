@@ -33,7 +33,7 @@ jupyter notebook
 then you can open the jupyter notebook in your browser with the provided link.
 
 ## Notebooks
-**Agent based stochastic simulation.ipynb:** this notebook contains python scripts for agent-based stochastic simulations with Gillespie algorithm direct method. It uses Multiprocessing to run multiple Gillespie trajectories in parallel, leading to multiple trials of simulation data for the same set of parameters. The default number of trails to run in parallel is 20, but it can be scaled down according to the number of avaible CPU cores on the machine. Empirically, it takes around 35 mins to run the simulation for 20000 iterations when all the trials are run in parallel. However, if the number of trials to run is larger than the number of avaible CPU cores, some trials of simulation have to wait to start when others are finihsed, which thus requires longer simulation time.
+**Agent based stochastic simulation.ipynb:** this notebook contains python scripts for agent-based stochastic simulations with Gillespie algorithm direct method. It uses Multiprocessing to run multiple Gillespie trajectories in parallel, leading to multiple trials of simulation data for the same set of parameters. The default number of trials running in parallel is set to 20, but it can be scaled down according to the number of avaible CPU cores on the machine. Empirically, it takes around 35 mins to run the simulation for 20000 iterations when all the trials are run in parallel. However, if the number of trials to run is larger than the number of avaible CPU cores, some trials of simulation have to wait until other trials are finihsed, which thus requires longer simulation time.
 
 **Mean field model.ipynb:** this notebooks 
 
