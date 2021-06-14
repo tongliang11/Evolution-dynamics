@@ -18,12 +18,15 @@ jupyter_nbextensions_configurator=0.4.1
 autopep8=1.5.6
 ```
 First, clone this repository into your local machine and have [conda](https://docs.conda.io/en/latest/miniconda.html) installed.
-Use `conda --version` to check conda version, which should be `4.10.1` or above.
-Then create a conda environment named `evolution` (or your own choice) and install relavent packages with command:
+Use `conda --version` to check conda version, which should be `4.10.1` or above. For Linux systems, the conda environment named `evolution` can be created from the file `environment.yml` with the following command (**only works for Linux systems**):
+```
+conda env create --file environment.yml
+```
+Alternatively, **for Windows and MacOS systems** or Linux systems that above commond failed, create the conda environment named `evolution` (or your own choice) and install relavent packages with command:
 ```
 conda create --name evolution --channel conda-forge python=3.9.4 jupyter=1.0.0 matplotlib=3.4.1  numpy=1.20.2 scipy=1.6.2 seaborn=0.11.1 pandas=1.2.4 jupyter_nbextensions_configurator=0.4.1 autopep8=1.5.6 
 ```
-and then you can activate the created conda environment with:
+After the conda environment named `evolution` is created, activate the environment with:
 ```
 conda activate evolution
 ```
