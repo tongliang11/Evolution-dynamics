@@ -19,7 +19,7 @@ autopep8=1.5.6
 ```
 First, clone this repository into your local machine and have [conda](https://docs.conda.io/en/latest/miniconda.html) installed.
 Use `conda --version` to check conda version, which should be `4.10.1` or above.
-Then create a conda environment named `evolution` and install relavent packages with command:
+Then create a conda environment named `evolution` (or your own choice) and install relavent packages with command:
 ```
 conda create --name evolution --channel conda-forge python=3.9.4 jupyter=1.0.0 matplotlib=3.4.1  numpy=1.20.2 scipy=1.6.2 seaborn=0.11.1 pandas=1.2.4 jupyter_nbextensions_configurator=0.4.1 autopep8=1.5.6 
 ```
