@@ -23,7 +23,7 @@ Use `conda --version` to check conda version, which should be `4.10.1` or above.
 ```
 conda env create --file environment.yml
 ```
-Alternatively, **for Windows and MacOS systems** or Linux systems that above commond failed, create the conda environment named `evolution` (or your own choice) and install relavent packages with command:
+Alternatively, **for Windows and macOS systems** or Linux systems that above commond failed, create the conda environment named `evolution` (or your own choice) and install relavent packages with command:
 ```
 conda create --name evolution --channel conda-forge python=3.9.4 jupyter=1.0.0 matplotlib=3.4.1  numpy=1.20.2 scipy=1.6.2 seaborn=0.11.1 pandas=1.2.4 ffmpeg=4.3.1 jupyter_nbextensions_configurator=0.4.1 autopep8=1.5.6 
 ```
