@@ -1,5 +1,5 @@
 # Evolution-dynamics
-This repository is associated with the research article **"Evolution of innate behavioral strategies through competitive population dynamics"** by Tong Liang and Braden A. W. Brinkman.
+This repository is associated with the research article **"[Evolution of innate behavioral strategies through competitive population dynamics](https://www.biorxiv.org/content/10.1101/2021.06.24.449791v1)"** by Tong Liang and Braden A. W. Brinkman.
 
 ## Python environment setup
 Required packages:
