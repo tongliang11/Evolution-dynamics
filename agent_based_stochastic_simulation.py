@@ -42,23 +42,6 @@ class Agent:
         return 'Agent({},{},{},{})'.format(self.birth, self.hop, *self.pos)
 
 
-class Agent_network():
-    def __init__(self, birth, hop, x, y):
-        self.birth = tuple(birth)
-        self.hop = list(hop)
-        self.pos = (x, y)
-        # resource goes as 0, 1, 2, 3, 4
-        self.b = self.birth[int(resource[x, y])]
-        self.h = self.hop[int(resource[x, y])]
-
-    def updatepos(self, x, y):
-        self.pos = (x, y)
-        # resource goes as 0, 1, 2, 3, 4
-        self.b = self.birth[int(resource[x, y])]
-        self.h = self.hop[int(resource[x, y])]
-
-
-
 def get_num(a, n):
     """
     Count agent numbers at all the locations
@@ -110,7 +93,7 @@ def uniform_resource(x, y):
     return rng.choice([0, 1, 2, 3, 4], size=(x, y))
 
 
-def exponetial_resource(x, y, c):
+def exponential_resource(x, y, c):
     rng = np.random.default_rng()
     p = [np.exp(-i*c) for i in range(5)]
     w = p/np.sum(p)
@@ -132,7 +115,7 @@ def evolve_gillespie(birth=[0, 1, 2, 3, 4], tot_iter=201, env_size=128, birth_no
     a = intialcondtiongenerator_uniform(
         birth=birth, hop_high=hop_high, n=env_size, m=agents)
     if save_data == True:
-        _path = './evolve_data' + \
+        _path = './evolve_data' + '/revision_Dec_2021' + \
             '/{}'.format(time.strftime("%Y_%m_%d_%H_%M",
                          time.localtime()))+'/trial_{}'.format(trial)
 #         _path = './evolve_data/b5_c_plane'+'/b5_{}_c_{}'.format(birth[-1],c)+'/trial_{}'.format(trial)
@@ -140,9 +123,9 @@ def evolve_gillespie(birth=[0, 1, 2, 3, 4], tot_iter=201, env_size=128, birth_no
         os.makedirs(_path, exist_ok=True)
         info = {"lattice": "{}*{}".format(env_size, env_size), "exponential_coefficient": c, "total_iteartion": tot_iter, "evolve_time": duration_iter, "noise": birth_noise,
                 "carrying_capacity": carrying_capacity, "initial_angent_number": agents, "data_stored_every": save_iter, "notes": simulation_notes}
-        with open(_path+'/simulation_info.txt', "wb") as fp:
+        with open(_path+'/simulation_info.pickle', "wb") as fp:
             pickle.dump(info, fp)
-        with open(_path+'/resource.txt', "wb") as fp:
+        with open(_path+'/resource.pickle', "wb") as fp:
             pickle.dump(resource, fp)
         with open(_path+'/iteration_00', "wb") as fp:
             pickle.dump(a, fp)
@@ -211,7 +194,8 @@ def evolve_gillespie(birth=[0, 1, 2, 3, 4], tot_iter=201, env_size=128, birth_no
 
     return a
 
-resource = uniform_resource(128, 128)
+# resource = uniform_resource(128, 128)
+resource = exponential_resource(128, 128, 0.5)
 if __name__ == '__main__':
     trials_in_parallel = 20  # number of trials to run in parallel
     ###Scale it down to if the number of cores available on your machine CPU is less than 20, otherwise it can run longer###
@@ -220,6 +204,6 @@ if __name__ == '__main__':
 
     with ProcessPoolExecutor() as executor:
         test = [executor.submit(evolve_gillespie, birth=[0, 1, 2, 3, 4], tot_iter=total_iterations, env_size=128, birth_noise=0.05, hop_high=10,
-                                save_data=True, trial=i, save_iter=50, agents=500, duration_iter=0.3, carrying_capacity=1, simulation_notes='Just for fun') for i in range(trials_in_parallel)]
+                                save_data=True, trial=i, save_iter=50, agents=500, duration_iter=0.3, carrying_capacity=1, simulation_notes='Replica 3, exponential env') for i in range(trials_in_parallel)]
    
     print("--- %s seconds ---" % (time.time() - start_time))
